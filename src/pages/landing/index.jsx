@@ -275,12 +275,12 @@ const LandingPage = () => {
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-12 md:p-16 text-center">
+        <div className="bg-gradient-to-r from-primary to-primary rounded-3xl p-12 md:p-16 text-center">
           <h2 className="text-4xl font-bold text-primary-foreground mb-6">
             Ready to Transform Your Claims Process?
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
-            Join the future of insurance claims processing. File your first claim in under 5 minutes.
+          <p className="text-xl mb-10 max-w-2xl mx-auto text-[rgba(237,237,237,1)]">Join the future of insurance claims processing. File your first claim in under 5 minutes.
+
           </p>
           <Button
             variant="secondary"
