@@ -69,7 +69,7 @@ const AgentStageCard = ({ agent, isActive, isCompleted, isUpcoming }) => {
                 />
               </div>
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>{agent?.progress}% complete</span>
+                <span>{Math.round(agent?.progress || 0)}% complete</span>
                 <span className="flex items-center gap-1">
                   <Icon name="Clock" size={12} strokeWidth={2} />
                   {agent?.estimatedTime}
