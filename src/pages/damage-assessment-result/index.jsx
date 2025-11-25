@@ -202,9 +202,8 @@ const DamageAssessmentResult = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <WorkflowProgress />
-      
-      <main className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="pt-[136px]">
+        <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="mb-6">
             <button
               onClick={handleBackToProcessing}
@@ -260,8 +259,8 @@ const DamageAssessmentResult = () => {
           </div>
         </div>
       </main>
-    </div>);
-
+    </div>
+  );
 };
 
 export default DamageAssessmentResult;

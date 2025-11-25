@@ -18,8 +18,8 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
           error={errors?.incidentDate}
           required
           max={new Date()?.toISOString()?.split('T')?.[0]}
-          description="When did the incident occur?"
-        />
+          description="When did the incident occur?" />
+
 
         <Input
           label="Incident Time"
@@ -28,8 +28,8 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
           onChange={handleChange('incidentTime')}
           error={errors?.incidentTime}
           required
-          description="Approximate time of incident"
-        />
+          description="Approximate time of incident" />
+
       </div>
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
@@ -46,16 +46,16 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
             focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent
             disabled:opacity-50 disabled:cursor-not-allowed
             ${errors?.description ? 'border-error' : 'border-border'}
-          `}
-        />
-        {errors?.description && (
-          <p className="mt-2 text-sm text-error flex items-center gap-2">
+          `} />
+
+        {errors?.description &&
+        <p className="mt-2 text-sm text-error flex items-center gap-2">
             <Icon name="AlertCircle" size={16} strokeWidth={2} />
             {errors?.description}
           </p>
-        )}
-        <p className="mt-2 text-xs text-muted-foreground">
-          Minimum 20 characters required
+        }
+        <p className="mt-2 text-xs text-muted-foreground">Minimum 5 characters required
+
         </p>
       </div>
       <Input
@@ -66,8 +66,8 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
         placeholder="e.g., MG Road, Bangalore or Highway NH-48 near Gurgaon"
         error={errors?.location}
         required
-        description="Street address or landmark where incident occurred"
-      />
+        description="Street address or landmark where incident occurred" />
+
       <div>
         <Input
           label="Policy ID"
@@ -78,8 +78,8 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
           error={errors?.policyId}
           required
           description="Your insurance policy identification number"
-          pattern="^POL-\d{4}-[A-Z]{2}-\d{6}$"
-        />
+          pattern="^POL-\d{4}-[A-Z]{2}-\d{6}$" />
+
         <div className="mt-2 flex items-start gap-2 p-3 bg-muted/50 rounded-lg">
           <Icon name="Info" size={16} color="var(--color-primary)" strokeWidth={2} className="flex-shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground">
@@ -87,8 +87,8 @@ const IncidentDetailsForm = ({ formData, errors, onChange }) => {
           </p>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default IncidentDetailsForm;

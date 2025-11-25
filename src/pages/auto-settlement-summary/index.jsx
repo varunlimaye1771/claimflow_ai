@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+
 import Header from '../../components/ui/Header';
 import WorkflowProgress from '../../components/ui/WorkflowProgress';
 import SettlementHeader from './components/SettlementHeader';
@@ -173,79 +173,72 @@ const AutoSettlementSummary = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Auto Settlement Summary - ClaimFlow AI</title>
-        <meta name="description" content="Review your approved insurance claim settlement with detailed breakdown and AI reasoning" />
-      </Helmet>
-      <div className="min-h-screen bg-background">
-        <Header />
-        <WorkflowProgress />
-        
-        <main className="pt-16">
-          <div className="max-w-7xl mx-auto px-6 py-8">
-            {isSettlementAccepted && (
-              <div className="mb-6 bg-success/10 border border-success rounded-lg p-4 animate-fade-in">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-success text-success-foreground flex items-center justify-center">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm font-semibold text-success">Settlement Accepted Successfully!</div>
-                    <div className="text-xs text-success/80">Your payment will be processed within 3-5 business days</div>
-                  </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <WorkflowProgress />
+      <main className="pt-[136px]">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          {isSettlementAccepted && (
+            <div className="mb-6 bg-success/10 border border-success rounded-lg p-4 animate-fade-in">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-success text-success-foreground flex items-center justify-center">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  </svg>
                 </div>
-              </div>
-            )}
-
-            <div className="space-y-6">
-              <SettlementHeader 
-                claimId={settlementData?.claimId}
-                processingTime={settlementData?.processingTime}
-              />
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-2 space-y-6">
-                  <PayoutCard
-                    amount={settlementData?.amount}
-                    settlementType={settlementData?.settlementType}
-                    confidence={settlementData?.confidence}
-                  />
-
-                  <BreakdownPanel breakdown={settlementData?.breakdown} />
-
-                  <ReasoningCard reasoning={reasoningData} />
-                </div>
-
-                <div className="space-y-6">
-                  <ActionButtons
-                    onAcceptSettlement={handleAcceptSettlement}
-                    onViewTimeline={handleViewTimeline}
-                  />
-
-                  <ProcessingTimeline timeline={timelineData} />
+                <div className="flex-1">
+                  <div className="text-sm font-semibold text-success">Settlement Accepted Successfully!</div>
+                  <div className="text-xs text-success/80">Your payment will be processed within 3-5 business days</div>
                 </div>
               </div>
             </div>
+          )}
+
+          <div className="space-y-6">
+            <SettlementHeader 
+              claimId={settlementData?.claimId}
+              processingTime={settlementData?.processingTime}
+            />
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2 space-y-6">
+                <PayoutCard
+                  amount={settlementData?.amount}
+                  settlementType={settlementData?.settlementType}
+                  confidence={settlementData?.confidence}
+                />
+
+                <BreakdownPanel breakdown={settlementData?.breakdown} />
+
+                <ReasoningCard reasoning={reasoningData} />
+              </div>
+
+              <div className="space-y-6">
+                <ActionButtons
+                  onAcceptSettlement={handleAcceptSettlement}
+                  onViewTimeline={handleViewTimeline}
+                />
+
+                <ProcessingTimeline timeline={timelineData} />
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
+      </main>
 
-        <AcceptanceModal
-          isOpen={isAcceptanceModalOpen}
-          onClose={() => setIsAcceptanceModalOpen(false)}
-          onConfirm={handleConfirmAcceptance}
-          amount={settlementData?.amount}
-        />
+      <AcceptanceModal
+        isOpen={isAcceptanceModalOpen}
+        onClose={() => setIsAcceptanceModalOpen(false)}
+        onConfirm={handleConfirmAcceptance}
+        amount={settlementData?.amount}
+      />
 
-        <AgenticTimelineModal
-          isOpen={isTimelineModalOpen}
-          onClose={() => setIsTimelineModalOpen(false)}
-          agentDecisions={agentDecisionsData}
-        />
-      </div>
-    </>
+      <AgenticTimelineModal
+        isOpen={isTimelineModalOpen}
+        onClose={() => setIsTimelineModalOpen(false)}
+        agentDecisions={agentDecisionsData}
+      />
+    </div>
   );
 };
 

@@ -46,7 +46,7 @@ const WorkflowProgress = () => {
   }
 
   return (
-    <div className="bg-card border-b border-border">
+    <div className="fixed top-16 left-0 right-0 z-[999] bg-card border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="hidden md:flex items-center justify-between gap-4">
           {workflowSteps?.map((step, index) => {

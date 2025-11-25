@@ -76,8 +76,8 @@ const FNOLIntakeForm = () => {
       newErrors.incidentTime = 'Incident time is required';
     }
 
-    if (!formData?.description || formData?.description?.trim()?.length < 20) {
-      newErrors.description = 'Description must be at least 20 characters';
+    if (!formData?.description || formData?.description?.trim()?.length < 5) {
+      newErrors.description = 'Description must be at least 5 characters';
     }
 
     if (!formData?.location || formData?.location?.trim()?.length < 5) {
@@ -134,7 +134,7 @@ const FNOLIntakeForm = () => {
   const isFormValid = () => {
     return (formData?.incidentDate &&
     formData?.incidentTime &&
-    formData?.description?.trim()?.length >= 20 &&
+    formData?.description?.trim()?.length >= 5 &&
     formData?.location?.trim()?.length >= 5 &&
     formData?.policyId &&
     /^POL-\d{4}-[A-Z]{2}-\d{6}$/?.test(formData?.policyId) && photos?.length > 0);
@@ -144,7 +144,7 @@ const FNOLIntakeForm = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <WorkflowProgress />
-      <main className="pt-16">
+      <main className="pt-[136px]">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <FormHeader />
 

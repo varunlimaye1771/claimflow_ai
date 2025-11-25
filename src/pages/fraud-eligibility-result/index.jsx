@@ -176,8 +176,8 @@ const FraudEligibilityResult = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <WorkflowProgress />
-      <main className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="pt-[136px]">
+        <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center">

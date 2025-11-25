@@ -181,7 +181,7 @@ const MultiAgentProcessing = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <WorkflowProgress />
-      <main className="pt-16">
+      <main className="pt-[136px]">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
